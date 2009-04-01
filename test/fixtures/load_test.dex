@@ -1,0 +1,3 @@
+slide 'test' do
+  text 'this is a test'
+end

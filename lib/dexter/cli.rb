@@ -23,7 +23,7 @@ module Dexter
         opts.parse!(arguments)
       end
 
-      file = arguments.first
+      file = arguments.first.to_s
       
       unless File.exist?(file)
         stdout.puts 'Can\'t find input file'
