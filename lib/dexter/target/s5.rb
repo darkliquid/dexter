@@ -25,6 +25,8 @@ class Dexter::Target::S5 < Dexter::Target::Base
 <meta name="generator" content="dexter" />
 <link rel="stylesheet" href="ui/slides.css" type="text/css"
    media="projection" id="slideProj" />
+<link rel="stylesheet" href="ui/outline.css" type="text/css"
+  media="projection" id="outlineStyle" />
 <link rel="stylesheet" href="ui/opera.css" type="text/css"
    media="projection" id="operaFix" />
 <link rel="stylesheet" href="ui/print.css" type="text/css"

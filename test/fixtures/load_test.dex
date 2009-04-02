@@ -1,3 +1,8 @@
 slide 'test' do
   text 'this is a test'
 end
+
+slide 'another test' do
+  text 'blah'
+  note 'moose'
+end
