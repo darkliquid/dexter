@@ -8,7 +8,7 @@ class TestDexterCli < Test::Unit::TestCase
     Dexter::CLI.stubs(:exit)
     Dexter::Parser.stubs(:parse).with('file that does not exist').returns(stub_everything)
     run_cmd('file that does not exist')
-    assert_match /Can't find input file/, @stdout
+    assert_match(/Can't find input file/, @stdout)
   end
   
   private

@@ -9,25 +9,12 @@ class TestDexterParser < Test::Unit::TestCase
   end
   
   def test_should_load_file_on_initialize
-    Dexter::Parser.any_instance.expects(:load).with('test')
+    File.expects(:read).with('test').returns('')
     Dexter::Parser.new('test')
   end
   
-  #def test_should_create_slide_structure
-  #  parser = Dexter::Parser.new(File.join(File.dirname(__FILE__),'fixtures', 'load_test.dex'))
-  #  
-  #  slides = [
-  #    [
-  #      :slide, 'test', [
-  #        [:text, 'this is a test']
-  #      ]
-  #    ]
-  #  ]
-  #  assert_equals slides, parser.instance_variable_get('@slides')
-  #end
-  
   def test_should_create_slide_in_slide_structure
-    Dexter::Parser.any_instance.stubs(:load).with('test')
+    File.stubs(:read).with('test').returns('')
     parser = Dexter::Parser.new('test')
     parser.slide 'test' do
     end
@@ -36,7 +23,7 @@ class TestDexterParser < Test::Unit::TestCase
   end
   
   def test_should_create_slide_with_text_in_slide_structure
-    Dexter::Parser.any_instance.stubs(:load).with('test')
+    File.stubs(:read).with('test').returns('')
     parser = Dexter::Parser.new('test')
     parser.slide 'test' do
       text 'this is a test'
@@ -48,7 +35,7 @@ class TestDexterParser < Test::Unit::TestCase
   end
   
   def test_should_create_multiple_slides_with_text_in_slide_structure
-    Dexter::Parser.any_instance.stubs(:load).with('test')
+    File.stubs(:read).with('test').returns('')
     parser = Dexter::Parser.new('test')
     parser.slide 'test' do
       text 'this is a test'
