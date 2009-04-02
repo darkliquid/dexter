@@ -13,6 +13,22 @@ class TestDexterParser < Test::Unit::TestCase
     Dexter::Parser.new('test')
   end
   
+  def test_should_create_title_in_slide_structure
+    File.stubs(:read).with('test').returns('')
+    parser = Dexter::Parser.new('test')
+    parser.title 'test' do
+    end
+    slides = [[:title, 'test']]
+    assert_equal slides, parser.instance_variable_get('@slides')    
+  end
+  
+  def test_should_raise_if_creating_title_in_slide_structure_twice
+    File.stubs(:read).with('test').returns('')
+    parser = Dexter::Parser.new('test')
+    parser.title 'test'
+    assert_raises(RuntimeError) { parser.title 'should error' }
+  end
+  
   def test_should_create_slide_in_slide_structure
     File.stubs(:read).with('test').returns('')
     parser = Dexter::Parser.new('test')
@@ -20,6 +36,17 @@ class TestDexterParser < Test::Unit::TestCase
     end
     slides = [[:slide, 'test', []]]
     assert_equal slides, parser.instance_variable_get('@slides')    
+  end
+  
+  def test_should_raise_if_creating_slide_in_slide
+    File.stubs(:read).with('test').returns('')
+    parser = Dexter::Parser.new('test')
+    assert_raises(RuntimeError) do
+      parser.slide 'test' do
+        slide 'should fail' do
+        end
+      end
+    end
   end
   
   def test_should_create_slide_with_text_in_slide_structure

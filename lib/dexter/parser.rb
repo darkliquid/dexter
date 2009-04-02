@@ -9,6 +9,11 @@ class Dexter::Parser
     instance_eval(File.read(file), file)    
   end
   
+  def title(name)
+    raise 'You can only set the title once' if @slides.any? { |entry| entry.first == :title }
+    @slides << [:title, name]
+  end
+  
   def slide(name, &block)
     raise ArgumentError, 'You can not make empty slides' unless block_given?
     raise 'You can not have a slide inside another slide' if @doing_slide
