@@ -30,7 +30,12 @@ module Dexter
         exit(1)
       end
 
-      Parser.parse(file).render(options)
+      output = Parser.parse(file).render(options)
+
+      File.open(output.filename, 'w') do |f|
+        f.puts output
+      end
+      stdout.puts "Wrote slideshow to '#{output.filename}'"
     end
   end
 end

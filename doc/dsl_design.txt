@@ -3,16 +3,10 @@ I'm thinking of a structure along the lines of:
 slide 'my first slide' do
 
   text 'some text to go on the slide'
-  image 'image.jpg'
+  text 'some more text'
+  text 'even more text'
+  note 'some notes that wont appear on the slideshow'
   
-  event do
-    text 'some more text'
-  end
-  
-  event do
-    text 'even more text'
-  end
-    
 end
 
 slide 'my second slide' do

@@ -28,6 +28,10 @@ class Dexter::Parser
     @current_scope << [:text, name]
   end
   
+  def note(name)
+    @current_scope << [:note, name]
+  end
+  
   def render(options = {})
     target = Dexter::Target.list.first
     if options[:target] && Dexter::Target.list.include?(options[:target])
