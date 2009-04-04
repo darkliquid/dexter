@@ -7,6 +7,7 @@ class Dexter::Target::S5 < Dexter::Target::Base
   def initialize(code)
     @code = code
     @slides = []
+    @title = 'Slideshow'
   end
   
   def filename
@@ -58,7 +59,7 @@ class Dexter::Target::S5 < Dexter::Target::Base
   private
   
   def process_slide(type, name, code)
-    @slides << slide_tag('name', dispatch(code.select { |item| item.first == :text }), dispatch(code.select { |item| item.first == :note }))
+    @slides << slide_tag(name, dispatch(code.select { |item| item.first == :text }), dispatch(code.select { |item| item.first == :note }))
   end
   
   def process_text(type, text)
