@@ -63,7 +63,7 @@ class Dexter::Target::S5 < Dexter::Target::Base
   end
   
   def process_text(type, text)
-    text
+    "<p>#{text}</p>"
   end
   
   def set_title(type, text)
